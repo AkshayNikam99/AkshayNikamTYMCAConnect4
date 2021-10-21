@@ -7,6 +7,7 @@ public class Board {
 	public String[][] myboard=new String[rows][columns];*/
 	public int rows;
 	public int columns;
+	public int winningpiece;
 	String[][] myboard;
 
 	
@@ -18,7 +19,7 @@ public class Board {
 			
 			if(myboard[row][columnToAdd]!=null) {
 				//Here we Create the variable for streak 
-				int winnerstreak=3;
+				int winnerstreak=winningpiece-1;
 				
 				//-----------------------------------------------------------------------------
 				//Check For downWard
@@ -31,13 +32,13 @@ public class Board {
 						}	
 					}//if
 					else {
-					winnerstreak=3;
+					winnerstreak=winningpiece;
 				   }
 				}//for end of downward
 				//----------------------------------------------------------------------------------
 				
 				
-				winnerstreak=4;
+				winnerstreak=winningpiece;
 				//-----------------------------------------------------------------------------
 				//Check For Horizontal 
 			  for(int winCol = columnToAdd - 3; winCol <= columnToAdd + 3; winCol++) {
@@ -50,12 +51,12 @@ public class Board {
 	                        	return true;
 	                        }
 	                    } else {
-	                    	winnerstreak = 4;
+	                    	winnerstreak = winningpiece;
 	                    }
 	                }
 
 			   //-----------------------------------------------------------------------------
-			  winnerstreak=4;
+			  winnerstreak=winningpiece;
                //check for left diagonal
 			  
 			  for(int winrow=row-3 ,  wincol=columnToAdd-3 ; winrow<=row+3  &&  wincol<=columnToAdd+3 ; winrow++,wincol++) {
@@ -69,14 +70,14 @@ public class Board {
 					  }
 				  }
 				  else {
-					  winnerstreak=4;
+					  winnerstreak=winningpiece;
 				  }
 			  }
 			  
 			  
 			  
 			  //-----------------------------------------------------------------------------
-			  winnerstreak=4;
+			  winnerstreak=winningpiece;
                //check for right diagonal
 			  
 			  for(int winrow=row-3 ,  wincol=columnToAdd+3 ; winrow<=row+3  &&  wincol<=columnToAdd+3 ; winrow++,wincol--) {
@@ -90,7 +91,7 @@ public class Board {
 					  }
 				  }
 				  else {
-					  winnerstreak=4;
+					  winnerstreak=winningpiece;
 				  }
 			  }  
 				
@@ -158,9 +159,10 @@ public class Board {
 	     System.out.println(); 
 	}//printBoard()
 	
-	public Board(int r, int c) {
+	public Board(int r, int c,int n) {
 		 rows=r;
 		 columns=c;
+		 winningpiece=n;
 		 myboard=new String[rows][columns];
 		 for(int row = 0 ;row<rows;row++) {
 			for(int col1=0 ;col1<columns;col1++) {
