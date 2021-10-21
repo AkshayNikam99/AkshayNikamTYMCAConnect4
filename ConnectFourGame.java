@@ -8,12 +8,12 @@ public class ConnectFourGame {
 	private String color2;
 	public int r;
 	public int c;
-	
+	public int n;
 	private boolean is1Playing;//if it is True(PLAYER 1) and if it is false(PLAYER 2) 
 
 	public ConnectFourGame() {}
 	//Constructor 
-	public ConnectFourGame(String color1 , String color2, int r,int c) {
+	public ConnectFourGame(String color1 , String color2, int r,int c,int n) {
 	
 		
 		this.color1=color1;
@@ -21,7 +21,8 @@ public class ConnectFourGame {
 		System.out.println(r+" "+c);
 		this.r=r;
 		this.c=c;
-		this.board=new Board(r,c);
+		this.n=n;
+		this.board=new Board(r,c,n);
 		//is1Playing=(new Random()).nextBoolean();
 		is1Playing=true;
 	}//Constructor
